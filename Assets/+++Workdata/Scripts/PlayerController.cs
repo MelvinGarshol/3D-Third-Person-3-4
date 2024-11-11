@@ -19,7 +19,17 @@ public class PlayerController : MonoBehaviour
 
     public static Action EnableAbilities;
     public static Action DisableAbilities;
-    
+
+    public void EnableInput()
+    {
+        inputActions.Enable();
+    }
+
+    public void DisableInput()
+    {
+        inputActions.Disable();
+    }
+
     #region Inspector
 
     [FormerlySerializedAs("movementSpeed")]
@@ -272,6 +282,20 @@ public class PlayerController : MonoBehaviour
         }
         
         lastMovement = movement;
+    }
+
+    #endregion
+
+    #region Physics
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        TrySelectInteractable(other);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        TryDeselectInteractable(other);
     }
 
     #endregion
