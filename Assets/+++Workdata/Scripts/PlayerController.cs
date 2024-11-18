@@ -293,9 +293,19 @@ public class PlayerController : MonoBehaviour
         TrySelectInteractable(other);
     }
 
+    private void TrySelectInteractable(Collider2D other)
+    {
+        throw new NotImplementedException();
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         TryDeselectInteractable(other);
+    }
+
+    private void TryDeselectInteractable(Collider2D other)
+    {
+        throw new NotImplementedException();
     }
 
     #endregion
